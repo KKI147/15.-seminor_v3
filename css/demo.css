@@ -1,0 +1,1353 @@
+/* common_sci #wrap(1920×1020) + popscale.js transform 스케일 — 좌표는 설계 해상도 기준 */
+
+#wrap .contents.clickPage1 {
+    background-color: #0a0e18 !important;
+    overflow: visible !important;
+}
+
+/* 설계 캔버스 = #wrap 과 동일 (responsive.js 가 #wrap 을 scale) */
+#wrap .contents.clickPage1 #defense-demo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1020px;
+    box-sizing: border-box;
+    font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+    color: #e0f4ff;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* common_sci 전역 color:#000 덮어쓰기 — inherit로 부모 밝은색 상속 */
+#wrap .contents.clickPage1 #defense-demo * {
+    color: inherit;
+}
+
+#wrap .contents.clickPage1 #defense-demo {
+    color: #e0f4ff;
+}
+
+#wrap .contents.clickPage1 #defense-demo strong {
+    font-weight: 700;
+}
+
+#defense-demo .demo-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1020px;
+    background:
+        radial-gradient(ellipse at 50% 28%, rgba(180, 60, 50, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 42%, #3a2830 0%, #1a1218 50%, #0a080c 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 오른쪽: 상태 + 타워 강화 패널 */
+#defense-demo .hud-right {
+    position: absolute;
+    z-index: 35;
+    left: 1310px;
+    top: 16px;
+    width: 594px;
+    height: 930px;
+    box-sizing: border-box;
+}
+
+#defense-demo .hud-status {
+    width: 100%;
+    padding: 14px 18px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(48, 32, 28, 0.95), rgba(24, 16, 18, 0.92));
+    border: 2px solid #8b5040;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.65;
+    letter-spacing: 0.03em;
+    box-shadow: inset 0 1px 0 rgba(255, 220, 160, 0.08);
+}
+
+#defense-demo .hud-status .status-line {
+    color: #e8d8c8;
+}
+
+#defense-demo .hud-status .status-line span {
+    color: #ffcc66;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#defense-demo .hud-status .status-line .ticket-hint {
+    color: #7a9ab8;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+#defense-demo .round-timer-line {
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(200, 140, 80, 0.25);
+}
+
+#defense-demo .round-timer-value {
+    font-size: 20px !important;
+    letter-spacing: 0.06em;
+}
+
+#defense-demo .round-timer-value.timer-warn {
+    color: #ffcc66 !important;
+}
+
+#defense-demo .round-timer-value.timer-critical {
+    color: #ff6666 !important;
+}
+
+#defense-demo .role-guide {
+    margin-top: 10px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(40, 28, 24, 0.94), rgba(22, 14, 16, 0.9));
+    border: 1px solid rgba(160, 90, 60, 0.45);
+    border-radius: 8px;
+}
+
+#defense-demo .role-guide-title {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffeeaa;
+    letter-spacing: 0.04em;
+}
+
+#defense-demo .role-guide-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#defense-demo .role-guide-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #b8d4f0;
+}
+
+#defense-demo .role-guide-text {
+    color: #b8d4f0;
+}
+
+#defense-demo .role-guide-list li:last-child {
+    margin-bottom: 0;
+}
+
+#defense-demo .role-guide-text strong {
+    color: #e8f4ff;
+}
+
+#defense-demo .role-guide-text em {
+    font-style: normal;
+    color: #ffcc88;
+    font-size: 11px;
+}
+
+#defense-demo .passive-desc {
+    margin: 6px 0 4px;
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #d8c8a8;
+    background: rgba(0, 0, 0, 0.25);
+    border-left: 3px solid #c9a066;
+    border-radius: 4px;
+}
+
+#defense-demo .role-icon-mini {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(8, 12, 20, 0.85);
+    position: relative;
+    box-sizing: border-box;
+}
+
+#defense-demo .role-icon-mini.icon-single {
+    border-color: #ffdd66;
+    background: radial-gradient(circle at 50% 50%, #ffdd66 28%, transparent 30%);
+}
+
+#defense-demo .role-icon-mini.icon-aoe {
+    border-color: #ffaa44;
+    box-shadow: inset 0 0 0 3px rgba(255, 170, 68, 0.35);
+    border-radius: 50%;
+}
+
+#defense-demo .role-icon-mini.icon-slow {
+    border-color: #66ddff;
+    background: linear-gradient(180deg, transparent 35%, rgba(102, 221, 255, 0.85) 36%);
+    clip-path: polygon(50% 8%, 92% 78%, 8% 78%);
+}
+
+#defense-demo .role-icon-mini.icon-buff {
+    border-color: #ff99ee;
+    background:
+        radial-gradient(circle at 50% 22%, #ff99ee 32%, transparent 34%),
+        radial-gradient(circle at 28% 72%, #ff99ee 28%, transparent 30%),
+        radial-gradient(circle at 72% 72%, #ff99ee 28%, transparent 30%);
+}
+
+#defense-demo .role-desc-with-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#defense-demo .role-desc-with-icon .role-icon-mini {
+    margin-top: 2px;
+}
+
+#defense-demo .tower-placeholder .placeholder-sub {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #99aabb;
+}
+
+#defense-demo .tower-panel {
+    margin-top: 12px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(48, 34, 30, 0.96), rgba(24, 16, 18, 0.94));
+    border: 2px solid #a07050;
+    border-radius: 10px;
+    min-height: 420px;
+}
+
+#defense-demo .tower-placeholder {
+    text-align: center;
+    color: #8899aa;
+    font-size: 14px;
+    padding: 48px 12px;
+    line-height: 1.6;
+}
+
+#defense-demo .tower-panel-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffee88;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+#defense-demo .tower-range-badge {
+    margin: 0 0 10px;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #cce8ff;
+    background: rgba(40, 80, 120, 0.35);
+    border: 1px solid rgba(120, 200, 255, 0.45);
+    border-radius: 6px;
+}
+
+#defense-demo .tower-range-badge strong {
+    color: #5eeaff;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+#defense-demo .tower-help {
+    font-size: 11px;
+    color: #99bbdd;
+    text-align: center;
+    margin: 0 0 12px;
+    line-height: 1.45;
+}
+
+#defense-demo .evo-compare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+#defense-demo .evo-card {
+    flex: 1;
+    max-width: 200px;
+    padding: 10px 8px;
+    text-align: center;
+    background: #1a2a38;
+    border: 2px solid #5a8aaa;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+#defense-demo .evo-card.evo-next {
+    border-color: #ffcc44;
+    background: rgba(50, 42, 20, 0.5);
+}
+
+#defense-demo .evo-label {
+    display: block;
+    font-size: 11px;
+    color: #aaccff;
+    margin-bottom: 6px;
+}
+
+#defense-demo .evo-card img {
+    image-rendering: pixelated;
+    display: block;
+    margin: 0 auto 6px;
+}
+
+#defense-demo .evo-stage {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffee88;
+}
+
+#defense-demo .evo-no {
+    display: block;
+    font-size: 12px;
+    color: #5eeaff;
+    margin-top: 2px;
+}
+
+#defense-demo .evo-arrow {
+    font-size: 28px;
+    color: #ffcc44;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+#defense-demo .evo-stats {
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+#defense-demo .evo-stats .merge-count {
+    text-align: center;
+    color: #ffee88;
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+
+#defense-demo .evo-stats .merge-count strong {
+    color: #66ff99;
+    font-size: 16px;
+}
+
+#defense-demo .evo-stats .stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#defense-demo .evo-stats .stat-name {
+    color: #aaccff;
+    width: 56px;
+}
+
+#defense-demo .evo-stats .stat-cur {
+    color: #cce0ff;
+    width: 52px;
+    text-align: right;
+}
+
+#defense-demo .evo-stats .stat-arrow {
+    color: #6688aa;
+    width: 20px;
+    text-align: center;
+}
+
+#defense-demo .evo-stats .stat-next {
+    color: #e8f4ff;
+    width: 72px;
+    text-align: right;
+}
+
+#defense-demo .evo-stats .stat-up {
+    color: #66ff99;
+    font-weight: bold;
+}
+
+#defense-demo .tower-body.just-upgraded .evo-next {
+    animation: evo-pulse 0.7s ease;
+    box-shadow: 0 0 20px rgba(255, 204, 68, 0.7);
+}
+
+@keyframes evo-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+#defense-demo #btn-upgrade.upgrade {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #ffcc44 !important;
+    background: linear-gradient(180deg, #5a4a20, #3a3010) !important;
+    color: #ffee88 !important;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+#defense-demo #btn-upgrade.upgrade:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+#defense-demo .tower-max-msg {
+    text-align: center;
+    font-size: 13px;
+    color: #ffcc88;
+    margin-top: 8px;
+}
+
+#defense-demo .grid-cell.tower-selected {
+    outline: 3px solid #ffcc44 !important;
+    background: rgba(255, 220, 140, 0.28) !important;
+    box-shadow: inset 0 0 12px rgba(255, 200, 80, 0.35);
+    z-index: 2;
+}
+
+/* 왼쪽: 뽑기 트레이 */
+#defense-demo .gacha-panel {
+    position: absolute;
+    z-index: 35;
+    left: 16px;
+    top: 16px;
+    width: 360px;
+    height: 930px;
+    padding: 10px;
+    background: linear-gradient(180deg, rgba(52, 36, 32, 0.97), rgba(28, 18, 20, 0.97));
+    border: 2px solid #c9a066;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    pointer-events: auto;
+    box-shadow: inset 0 0 0 1px rgba(255, 220, 160, 0.12), 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+#defense-demo .gacha-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffee88;
+    margin-bottom: 6px;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+#defense-demo .gacha-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 6px;
+}
+
+#defense-demo .gacha-toolbar .sort {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #5a8aaa !important;
+    background: linear-gradient(180deg, #2a4055, #1a2838) !important;
+    color: #cceeff !important;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#defense-demo .gacha-toolbar .deploy-all {
+    flex: 1;
+    min-width: 72px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #66cc99 !important;
+    background: linear-gradient(180deg, #1f4a3a, #133025) !important;
+    color: #caffdf !important;
+    border-radius: 6px;
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+}
+
+#defense-demo .gacha-toolbar .legendary-combo {
+    flex: 1 1 100%;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #e8b040 !important;
+    background: linear-gradient(180deg, #4a3820, #2a2010) !important;
+    color: #ffe8aa !important;
+    border-radius: 6px;
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+}
+
+#defense-demo .gacha-toolbar .storage-count {
+    flex: 1 1 100%;
+    font-size: 12px;
+    color: #aaccff;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#defense-demo .gacha-tray {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    min-height: 64px;
+    pointer-events: auto;
+}
+
+#defense-demo .gacha-card,
+#defense-demo .storage-card {
+    width: 64px;
+    padding: 4px;
+    background: #1a2a38;
+    border: 2px solid #5a8aaa;
+    border-radius: 6px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: grab;
+}
+
+#defense-demo .storage-card:active {
+    cursor: grabbing;
+    border-color: #ffcc44;
+    box-shadow: 0 0 10px rgba(255, 204, 68, 0.4);
+}
+
+#defense-demo .storage-group-divider {
+    width: 100%;
+    height: 2px;
+    margin: 4px 0;
+    background: linear-gradient(90deg, transparent, #ffcc44, transparent);
+    flex-basis: 100%;
+}
+
+#defense-demo .gacha-panel.is-storage-drag {
+    border-color: #ffcc88;
+    box-shadow: 0 0 16px rgba(255, 200, 120, 0.3);
+}
+
+#defense-demo .gacha-stage {
+    color: #ffee88;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#defense-demo .grid-cell.storage-drop-target {
+    background: rgba(136, 255, 204, 0.35) !important;
+    outline: 2px dashed #aaffcc !important;
+}
+
+#defense-demo .gacha-card.next {
+    border-color: #ffcc44;
+    box-shadow: 0 0 8px rgba(255, 204, 68, 0.45);
+}
+
+#defense-demo .gacha-card img {
+    image-rendering: pixelated;
+    display: block;
+    margin: 0 auto;
+    width: 52px;
+    height: 52px;
+}
+
+#defense-demo .gacha-no {
+    display: block;
+    font-size: 9px;
+    color: #aaccff;
+    margin-top: 2px;
+}
+
+#defense-demo .gacha-count {
+    color: #ffee88;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* 배치 조정: 점유 칸 드래그 시작 + 빈 칸에 드롭(마우스 enter) */
+#defense-demo .grid-overlay.reposition-on .grid-cell {
+    pointer-events: auto !important;
+}
+
+#defense-demo .grid-overlay.reposition-on .grid-cell.occupied {
+    cursor: grab;
+}
+
+#defense-demo .grid-overlay.reposition-on .grid-cell:not(.occupied) {
+    cursor: default;
+}
+
+#defense-demo .grid-overlay.is-dragging .grid-cell.drag-source {
+    outline: 2px solid #ffcc44;
+    cursor: grabbing;
+}
+
+#defense-demo .grid-overlay.is-dragging .grid-cell.drag-target {
+    background: rgba(68, 255, 170, 0.35) !important;
+    outline: 2px dashed #aaffcc;
+}
+
+#defense-demo .hud-bottom button.start {
+    border-color: #66ff99 !important;
+    background: linear-gradient(180deg, #1a5a3a, #0a3020) !important;
+    color: #ccffdd !important;
+}
+
+#defense-demo .gacha-placeholder,
+#defense-demo .gacha-loading {
+    font-size: 11px;
+    color: #8899aa;
+    width: 100%;
+    text-align: center;
+}
+
+#defense-demo .gacha-info {
+    font-size: 11px;
+    color: #cceeff;
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.35;
+}
+
+/* 중앙: 맵 900×900 — Pixi FIELD와 1:1 (체육관 도장) */
+#defense-demo .game-stage {
+    position: absolute;
+    z-index: 10;
+    left: 392px;
+    top: 16px;
+    width: 900px;
+    height: 900px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #121018;
+}
+
+#defense-demo .game-stage.map-gym {
+    border: 5px solid #5c4030;
+    border-radius: 4px;
+    box-shadow:
+        inset 0 0 0 2px #c9a066,
+        inset 0 0 48px rgba(0, 0, 0, 0.45),
+        0 8px 36px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 200, 120, 0.15);
+}
+
+#defense-demo .game-stage.map-gym::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 28px;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(200, 50, 40, 0.35) 0%, transparent 100%);
+}
+
+#defense-demo .game-stage.map-gym::after {
+    content: 'GYM';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: rgba(255, 240, 200, 0.45);
+}
+
+#defense-demo .pixi-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 900px;
+    height: 900px;
+    z-index: 5;
+    pointer-events: none !important;
+}
+
+#defense-demo .pixi-wrap canvas {
+    display: block;
+    width: 900px !important;
+    height: 900px !important;
+    pointer-events: none !important;
+}
+
+#defense-demo .grid-label {
+    position: absolute;
+    left: 180px;
+    top: 156px;
+    width: 540px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255, 248, 220, 0.75);
+    letter-spacing: 0.08em;
+    z-index: 25;
+    pointer-events: none;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+#defense-demo .grid-overlay {
+    position: absolute;
+    left: 180px;
+    top: 180px;
+    width: 540px;
+    height: 540px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(10, 54px);
+    grid-template-rows: repeat(10, 54px);
+    pointer-events: none;
+    box-sizing: border-box;
+    border: none;
+}
+
+#defense-demo .grid-cell {
+    box-sizing: border-box;
+    width: 54px;
+    height: 54px;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+#defense-demo .grid-overlay.deploy-on .grid-cell:not(.occupied),
+#defense-demo .grid-overlay.is-storage-place .grid-cell:not(.occupied) {
+    pointer-events: auto !important;
+    cursor: copy;
+    background: transparent;
+}
+
+#defense-demo .grid-overlay.is-storage-place {
+    pointer-events: auto;
+}
+
+#defense-demo .grid-cell.hover:not(.occupied) {
+    background: rgba(255, 220, 140, 0.22) !important;
+    box-shadow: inset 0 0 0 2px rgba(255, 240, 200, 0.55);
+}
+
+#defense-demo .grid-cell.occupied {
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
+#defense-demo .hud-msg {
+    position: absolute;
+    z-index: 30;
+    left: 392px;
+    top: 924px;
+    width: 900px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #e8d0b0;
+    pointer-events: none;
+}
+
+#defense-demo .hud-bottom {
+    position: absolute;
+    z-index: 30;
+    left: 16px;
+    top: 958px;
+    width: 1888px;
+    height: 48px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+#defense-demo .hud-bottom button {
+    min-width: 128px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #3a8acc !important;
+    background: linear-gradient(180deg, #1a3a5a, #0a2030) !important;
+    color: #aaf0ff !important;
+    cursor: pointer;
+}
+
+#defense-demo .hud-bottom button.primary {
+    border-color: #ffcc44 !important;
+    background: linear-gradient(180deg, #5a4a20, #3a3010) !important;
+    color: #ffee88 !important;
+}
+
+#defense-demo .hud-bottom button.skip {
+    border-color: #88aaff !important;
+    background: linear-gradient(180deg, #2a3a5a, #1a2540) !important;
+    color: #cce8ff !important;
+}
+
+#defense-demo .hud-bottom button.reroll {
+    border-color: #cc88ff !important;
+    background: linear-gradient(180deg, #3a2a5a, #251840) !important;
+    color: #eeccff !important;
+}
+
+#defense-demo .hud-bottom button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* 리롤 — 보관함 3마리 → 뽑기권 1장 */
+#defense-demo .reroll-overlay {
+    position: absolute;
+    z-index: 25;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: auto;
+}
+
+#defense-demo .reroll-panel {
+    width: 520px;
+    max-height: 82%;
+    overflow-y: auto;
+    padding: 16px 18px 14px;
+    border: 2px solid #cc88ff;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(30, 22, 48, 0.96), rgba(16, 12, 28, 0.98));
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    text-align: center;
+}
+
+#defense-demo .reroll-title {
+    margin: 0 0 12px;
+    font-size: 15px;
+    color: #f0ddff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+#defense-demo .reroll-title strong {
+    color: #ffe8cc;
+}
+
+#defense-demo .reroll-cost {
+    color: #ffeeaa;
+    font-style: normal;
+}
+
+#defense-demo .reroll-cards {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 120px;
+    max-height: 340px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 4px 2px;
+}
+
+#defense-demo .reroll-pick-count {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #ffeeaa;
+    font-weight: bold;
+}
+
+#defense-demo .reroll-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#defense-demo .reroll-confirm {
+    min-width: 100px;
+    padding: 7px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ffdd88;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #5a4020, #3a2810);
+    color: #ffeecc;
+    cursor: pointer;
+}
+
+#defense-demo .reroll-confirm:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#defense-demo .reroll-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 88px;
+    padding: 6px 4px 8px;
+    border: 2px solid rgba(200, 140, 255, 0.45);
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(50, 35, 70, 0.95), rgba(28, 20, 42, 0.95));
+    cursor: pointer;
+    color: #e8f4ff;
+}
+
+#defense-demo .reroll-card.selected {
+    border-color: #ffdd44;
+    box-shadow: 0 0 14px rgba(255, 220, 100, 0.45);
+    background: linear-gradient(180deg, rgba(70, 55, 30, 0.95), rgba(40, 30, 18, 0.95));
+}
+
+#defense-demo .reroll-card:hover {
+    border-color: #ffdd88;
+    box-shadow: 0 0 12px rgba(255, 200, 100, 0.35);
+}
+
+#defense-demo .reroll-card img {
+    image-rendering: pixelated;
+    display: block;
+    margin-bottom: 4px;
+}
+
+#defense-demo .reroll-no {
+    font-size: 11px;
+    color: #aaccff;
+}
+
+#defense-demo .reroll-cancel {
+    min-width: 88px;
+    padding: 6px 14px;
+    font-size: 13px;
+    border: 1px solid #6688aa;
+    border-radius: 6px;
+    background: rgba(20, 30, 45, 0.9);
+    color: #cceeff;
+    cursor: pointer;
+}
+
+#defense-demo .storage-card.can-evolve {
+    border-color: #ffee44 !important;
+    box-shadow: 0 0 12px rgba(255, 238, 68, 0.45);
+    animation: evo-ready-pulse 1.1s ease-in-out infinite;
+}
+
+#defense-demo .storage-card.can-utility-merge {
+    border-color: #66ddff !important;
+    box-shadow: 0 0 12px rgba(102, 221, 255, 0.45);
+    animation: evo-ready-pulse 1.1s ease-in-out infinite;
+}
+
+#defense-demo .storage-card .utility-ready-badge {
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    z-index: 2;
+    padding: 1px 5px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: bold;
+    font-style: normal;
+    color: #003344;
+    background: #66ddff;
+    animation: evo-ready-pulse 1.1s ease-in-out infinite;
+}
+
+/* 무진화 유틸 강화 — 1 / 2 숫자 표기 */
+#defense-demo .utility-lv-tag {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 6px;
+    min-width: 14px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    color: #003344;
+    vertical-align: middle;
+    background: linear-gradient(180deg, #aaeeff, #66ccff);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(102, 221, 255, 0.35);
+}
+
+#defense-demo .evo-card .utility-lv-tag {
+    display: block;
+    margin: 8px auto 0;
+    width: fit-content;
+    font-size: 14px;
+    min-width: 18px;
+}
+
+#defense-demo .storage-card .utility-lv-badge {
+    position: absolute;
+    top: 18px;
+    left: 6px;
+    z-index: 2;
+    padding: 2px 6px;
+    min-width: 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1.2;
+    color: #003344;
+    background: linear-gradient(180deg, #aaeeff, #66ccff);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(102, 221, 255, 0.4);
+    pointer-events: none;
+}
+
+#defense-demo .reroll-card .utility-lv-tag {
+    margin-left: 3px;
+    font-size: 8px;
+}
+
+#defense-demo .utility-lv-tag.utility-lv-2,
+#defense-demo .utility-lv-badge.utility-lv-2 {
+    color: #332200;
+    background: linear-gradient(180deg, #ffee88, #ffcc44);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 8px rgba(255, 220, 80, 0.55);
+}
+
+#defense-demo .storage-card .utility-lv-badge.utility-lv-2 {
+    font-size: 14px;
+    padding: 2px 7px;
+    min-width: 18px;
+}
+
+#defense-demo .storage-card .evo-ready-badge {
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    z-index: 2;
+    padding: 1px 5px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: bold;
+    font-style: normal;
+    color: #332200;
+    background: #ffee44;
+    animation: evo-ready-pulse 1.1s ease-in-out infinite;
+}
+
+#defense-demo .storage-card .evo-line-mark {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #88ffcc;
+    font-style: normal;
+}
+
+#defense-demo .storage-card {
+    position: relative;
+}
+
+#defense-demo .grid-cell.occupied.evo-ready {
+    box-shadow: inset 0 0 0 2px #ffee44, 0 0 14px rgba(255, 238, 68, 0.5);
+    animation: evo-ready-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes evo-ready-pulse {
+    0%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.72;
+        filter: brightness(1.15);
+    }
+}
+
+#defense-demo #btn-upgrade.upgrade:not(:disabled) {
+    animation: evo-ready-pulse 1.4s ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(255, 238, 68, 0.35);
+}
+
+#defense-demo .role-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: bold;
+    padding: 0 3px;
+    border-radius: 3px;
+    margin-left: 2px;
+}
+
+#defense-demo .element-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-style: normal;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+#defense-demo .storage-card.is-legendary {
+    border-color: #e8b040 !important;
+    background: linear-gradient(180deg, rgba(72, 52, 28, 0.95), rgba(36, 26, 16, 0.95)) !important;
+    box-shadow: 0 0 10px rgba(255, 200, 80, 0.28), inset 0 0 0 1px rgba(255, 220, 140, 0.2);
+}
+
+#defense-demo .legendary-badge {
+    display: inline-block;
+    margin-left: 2px;
+    padding: 1px 5px;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: bold;
+    color: #332200 !important;
+    background: linear-gradient(180deg, #ffee88, #ffcc44) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(255, 200, 80, 0.45);
+}
+
+#defense-demo .legendary-recipe-meta .role-badge,
+#defense-demo .legendary-recipe-meta .element-badge {
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* 전설 조합 패널 — 맵 영역 전체 (gacha-panel·hud 위) */
+#defense-demo > .legendary-overlay {
+    position: absolute;
+    z-index: 45;
+    left: 392px;
+    top: 16px;
+    width: 900px;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.65);
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+#defense-demo .legendary-panel {
+    width: 560px;
+    max-height: 88%;
+    overflow-y: auto;
+    padding: 14px 16px 12px;
+    border: 2px solid #e8b040;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(48, 32, 24, 0.98), rgba(20, 12, 14, 0.98));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+#defense-demo .legendary-title {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffe8aa !important;
+    text-align: center;
+}
+
+#defense-demo .legendary-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    color: #c8a880 !important;
+    margin-top: 4px;
+}
+
+#defense-demo .legendary-recipe {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid rgba(160, 100, 60, 0.4);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#defense-demo .legendary-recipe.is-ready {
+    border-color: rgba(255, 220, 100, 0.65);
+    box-shadow: 0 0 12px rgba(255, 200, 80, 0.15);
+}
+
+/* 조합 결과를 이미 보유한 경우 */
+#defense-demo .legendary-recipe.is-owned {
+    border-color: rgba(100, 180, 255, 0.75);
+    background: linear-gradient(135deg, rgba(25, 45, 75, 0.55), rgba(15, 28, 48, 0.65));
+    box-shadow: inset 0 0 0 1px rgba(136, 204, 255, 0.25);
+}
+
+#defense-demo .legendary-recipe.is-owned .legendary-recipe-meta strong {
+    color: #b8e4ff;
+}
+
+#defense-demo .legendary-recipe.is-owned .legendary-hint {
+    color: #8aa8c8;
+}
+
+#defense-demo .legendary-recipe.is-owned .legendary-result-img {
+    box-shadow: 0 0 0 2px rgba(120, 200, 255, 0.85);
+    background: rgba(40, 80, 120, 0.35);
+}
+
+#defense-demo .legendary-result-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+#defense-demo .legendary-owned-chip {
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%);
+    padding: 1px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1.2;
+    color: #e8f8ff;
+    background: linear-gradient(180deg, #3a7ab8, #1e5080);
+    border: 1px solid rgba(180, 230, 255, 0.7);
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+#defense-demo .legendary-owned-loc {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #88ccff;
+}
+
+#defense-demo .legendary-recipe-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+#defense-demo .legendary-result-img {
+    image-rendering: pixelated;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#defense-demo .legendary-recipe-meta strong {
+    display: block;
+    color: #ffeecc;
+    font-size: 14px;
+}
+
+#defense-demo .legendary-hint {
+    font-size: 11px;
+    color: #b8a090;
+}
+
+#defense-demo .legendary-ing-list {
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+
+#defense-demo .legendary-ing-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #c8b8a8;
+}
+
+#defense-demo .legendary-ing-list li img {
+    image-rendering: pixelated;
+}
+
+#defense-demo .legendary-ing-list li.has-ing {
+    color: #b8f0c0;
+}
+
+#defense-demo .legendary-ing-list li.need-ing {
+    color: #a09088;
+    opacity: 0.75;
+}
+
+#defense-demo .legendary-ing-list li em {
+    font-style: normal;
+    color: #ffcc88;
+    font-size: 10px;
+}
+
+#defense-demo .legendary-status {
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+#defense-demo .legendary-status.owned {
+    color: #a8ddff;
+    font-weight: bold;
+}
+
+#defense-demo .legendary-status.need {
+    color: #aa9988;
+}
+
+#defense-demo .btn-legendary-craft {
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #ffdd66 !important;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #6a5020, #3a2810) !important;
+    color: #fff8e0 !important;
+    cursor: pointer;
+}
+
+#defense-demo .legendary-close {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 13px;
+    border: 1px solid #886650;
+    border-radius: 6px;
+    background: rgba(30, 20, 18, 0.9);
+    color: #e8d0b0;
+    cursor: pointer;
+}
+
+
