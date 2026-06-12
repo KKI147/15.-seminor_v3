@@ -5,7 +5,7 @@ PixiJS(필드·전투) + jQuery(DOM 그리드·HUD) + `common/` 프레임워크(
 
 **상세 규칙**: [`docs/game-mechanics.md`](docs/game-mechanics.md)
 
-https://kki147.github.io/defense/
+(https://kki147.github.io/15.-seminor_v3/)
 
 ---
 
